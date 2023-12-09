@@ -1,0 +1,31 @@
+{
+	"manifest_version": 3,
+	"name": "OTP Cracker",
+	"version": "1.0.0",
+	"description": "OTP Cracker Extension will perform the simple Brute force attacking for OTP cracking.",
+	"icons": {
+		"16": "icons/favicon16.png",
+		"32": "icons/favicon32.png",
+		"48": "icons/favicon48.png",
+		"128": "icons/favicon128.png",
+		"180": "icons/favicon180.png"
+	},
+	"permissions": [
+		"storage",
+		"activeTab",
+		"tabs",
+		"scripting"
+	],
+	"action": {
+		"default_icon": "icons/favicon48.png",
+		"default_popup": "index.html",
+		"default_title": "OTP Cracker"
+	},
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["js/script.js"]
+	}],
+	"background": {
+		"service_worker": "service/serviceworker.js"
+	}
+}

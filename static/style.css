@@ -1,0 +1,233 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Segoe WPC, Segoe UI, sans-serif;
+}
+html, body {
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+#content {
+	position: relative;
+	width: 400px;
+	height: 333px;
+	background-color: #0e3038;
+	/* background-image: url(/icons/background.svg);
+	background-repeat: no-repeat;
+	background-position: center; */
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+ul {
+	list-style: none;
+}
+.terminal, .primary-page {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	flex-direction: column;
+}
+.menubar {
+	padding: 0 11px;
+	height: 22px;
+	width: 100%;
+	font-size: 13px;
+	background-color: #2f5cbd;
+}
+.menubar ul {
+	align-items: center;
+	user-select: none;
+	display: flex;
+	column-gap: 11px;
+	height: 100%;
+	overflow: hidden;
+	flex-wrap: nowrap;
+}
+.menubar ul li {
+	white-space: nowrap;
+	font-family: monospace;
+	color: #c2f922;
+	text-transform: capitalize;
+}
+.timestamp {
+	position: relative;
+	margin-left: auto;
+}
+.timestamp::before {
+	border-radius: 1px;
+	position: absolute;
+	content: "";
+	width: 10px;
+	height: 10px;
+	left: -15px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #c2f922;
+}
+.timestamp.active::before {
+	animation: blink 1s steps(2) infinite;
+}
+@keyframes blink {
+	0% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: visible;
+	}
+}
+.view {
+	position: relative;
+	flex: 1;
+	overflow: hidden;
+}
+.terminal-view {
+	padding: 8px 11px;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	scrollbar-width: 0px;
+}
+.terminal-view::-webkit-scrollbar {
+	width: 0px;
+}
+.terminal-view ul li {
+	font-size: 12px;
+	color: #386ddf;
+	font-weight: bolder;
+	font-family: monospace;
+}
+.terminal-view ul li.switched {
+	color: #c2f922;
+}
+span.code {
+	color: #c2f922;
+}
+.terminal-view ul li.switched span.code {
+	color: #386ddf;
+}
+footer {
+	text-align: center;
+	font-size: 13px;
+	padding: 8px;
+	color: #f3eeee;
+	margin-top: auto;
+}
+.trigger {
+	display: flex;
+	padding: 11px 0;
+	justify-content: flex-end;
+}
+input, button, select {
+	border: none;
+	outline: none;
+}
+button {
+	border-radius: 2px;
+	font-size: 15px;
+	padding: 0 20px;
+	height: 30px;
+	cursor: pointer;
+	color: #ffffff;
+	background-color: #386ddf;
+	transition: background 0.1s ease-in-out;
+}
+button:hover {
+	background-color: #3263ce;
+}
+header {
+	display: flex;
+	padding: 11px 8px;
+	justify-content: center;
+}
+.input-fields {
+	padding: 11px;
+}
+.input-fields .field:first-child {
+	margin-bottom: 11px;
+}
+.input-fields input, 
+.input-fields select {
+	border: 1px solid #0c0c0c;
+	padding: 0 8px;
+	overflow: hidden;
+	caret-color: #eee;
+	color: #eee;
+	font-size: 14px;
+	width: 100%;
+	height: 35px;
+	border-radius: 3px;
+	background-color: #0c0c0c;
+	text-overflow: ellipsis;
+}
+.select-field {
+	column-gap: 8px;
+	display: flex;
+	flex-wrap: nowrap;
+}
+.input-fields input::placeholder {
+	color: #a3a1a1;
+}
+.input-fields input:focus::placeholder {
+	color: #eee;
+}
+select {
+	-webkit-appearance: none;
+	background-image: url(/icons/cheverone.svg);
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+}
+.popup h1 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 22px;
+	font-weight: bolder;
+	color: #ffffff;
+	font-family: monospace;
+	-webkit-text-stroke: 1px #ffffff;
+	animation: blink 1s steps(2) infinite;
+}
+.popup {
+	padding: 13px 11px;
+	width: 140px;
+	background-color: #afe70c;
+	left: 50%;
+	text-align: center;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+.popup::after, .popup::before {
+	height: 20px;
+	width: 20px;
+	content: "";
+	position: absolute;
+	background-color: #0e3038;
+}
+.popup::after {
+	right: -18px;
+	top: -1px;
+	transform: skewX(45deg);
+}
+.popup::before {
+	left: -18px;
+	bottom: -1px;
+	transform: skewX(45deg);
+}
+.popup.failure {
+	background-color: #f99722;
+}
+div.error {
+	color: #f99722;
+	font-size: 12px;
+	margin-top: 2px;
+}
